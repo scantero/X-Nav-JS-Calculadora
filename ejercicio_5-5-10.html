@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+     <link rel="stylesheet" type="text/css" href="ejercicio_5-5-10.css">
+     <title>Photo shower</title>
+     <script type="text/javascript" charset="utf-8">
+      var resultado = null;
+      function uno(elem){
+        var element = document.getElementById(elem);
+        var contenido = element.innerHTML;
+        if (contenido.length == 0 || contenido.length == 2){
+          if (contenido == "" || contenido == "1+" || contenido == "0+"){
+            contenido += 1;
+          }
+        }
+        element.innerHTML = contenido;
+      }
+      function cero(elem){
+        var element = document.getElementById(elem);
+        var contenido = element.innerHTML;
+        if (contenido.length == 0 || contenido.length == 2){
+          if (contenido == "" || contenido == "1+" || contenido == "0+"){
+            contenido += 0;
+          }
+        }
+        element.innerHTML = contenido;
+      }
+      function mas(elem){
+        var element = document.getElementById(elem);
+        var contenido = element.innerHTML;
+        if (contenido.length == 1){
+          contenido += '+';
+        }
+        element.innerHTML = contenido;
+      }
+      function igual(elem){
+        var element = document.getElementById(elem);
+        var contenido = element.innerHTML;
+        var operandos = contenido.split("+");
+        var res = parseInt(operandos[0]) ^ parseInt(operandos[1]);
+        if (contenido.length == 3){
+          contenido += '=';
+          contenido += res;
+        }
+        element.innerHTML = contenido;
+      }
+       function photo() {
+          var element = document.getElementById('tag');
+          var photoURL = photos[Math.floor(Math.random()*photos.length)]
+          element.innerHTML = '<img src="' + photoURL + '">';
+       }
+     </script>
+   </head>
+   <body>
+     <div id="result"></div>
+     <div id="values">
+       <button type="button" onclick="javascript:uno('result')">1</a>
+       <button type="button" onclick="javascript:cero('result')">0</a>
+       <button type="button" onclick="javascript:mas('result')">+</a>
+       <button type="button" onclick="javascript:igual('result')">=</a>
+     </div>
+
+   </body>
+</html>
